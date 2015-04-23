@@ -14,5 +14,4 @@ RUN ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h
 RUN docker-php-ext-install zip mcrypt gmp ssh2
 
 RUN composer require phpseclib/phpseclib:2.0.*@dev &&\
-    composer require deployer/deployer:2.0.5 &&\
-    composer require robmorgan/phinx:0.4.x
+    composer require deployer/deployer:2.0.5
