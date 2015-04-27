@@ -1,4 +1,4 @@
-FROM php:5.4-fpm
+FROM php:5.4
 MAINTAINER "Sascha Marcel Schmidt" <docker@saschaschmidt.net>
 
 RUN apt-get update && apt-get install git libmcrypt-dev libgmp-dev libssh2-1-dev zlib1g-dev -y --no-install-recommends && rm -r /var/lib/apt/lists/*
@@ -13,5 +13,12 @@ RUN ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h
 
 RUN docker-php-ext-install zip mcrypt gmp ssh2
 
+RUN touch /usr/local/etc/php/conf.d/date.ini &&\
+    echo 'date.timezone = "Europe/Berlin"' > /usr/local/etc/php/conf.d/date.ini
+
 RUN composer require phpseclib/phpseclib:2.0.*@dev &&\
     composer require deployer/deployer:2.0.5
+
+RUN mkdir -p /var/www/html/configuration
+WORKDIR /var/www/html/configuration
+CMD ["php", "/var/www/html/vendor/bin/dep", "deploy"]
