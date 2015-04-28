@@ -16,6 +16,8 @@ RUN docker-php-ext-install zip mcrypt gmp ssh2
 RUN touch /usr/local/etc/php/conf.d/date.ini &&\
     echo 'date.timezone = "Europe/Berlin"' > /usr/local/etc/php/conf.d/date.ini
 
+RUN mkdir -p /var/www/html
+WORKDIR /var/www/html
 RUN composer require phpseclib/phpseclib:2.0.*@dev &&\
     composer require deployer/deployer:2.0.5
 
