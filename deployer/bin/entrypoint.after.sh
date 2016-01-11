@@ -3,12 +3,12 @@
 case ${1} in
     dep:live)
         set -e
-        dep live
+        dep -f${2} deploy live
         exit 0
          ;;
     dep:develop)
         set -e
-        dep develop
+        dep -f${2} deploy develop
         exit 0
          ;;
 esac
