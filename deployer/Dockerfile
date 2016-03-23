@@ -8,7 +8,7 @@ RUN bash -c "source /usr/local/etc/entrypoint.functions.sh && \
     composer global require --dev deployer/deployer:~3.0 deployphp/recipes:dev-master && \
     enableXDebug"
 COPY bin/ /usr/local/bin/
-COPY ssh/ /home/develop/.ssh/
+COPY ssh/ /home/developer/.ssh/
 RUN chmod 700 -R /home/developer/.ssh
 RUN chown 1000.1000 -R /home/developer/.ssh
 CMD ["dep:develop"]
