@@ -1,7 +1,7 @@
 FROM torvitas/php-fpm:5.6
 MAINTAINER "Sascha Marcel Schmidt" <docker@saschaschmidt.net>
 RUN apt-get update && apt-get install rsync openssh-client unzip -y && rm -r /var/lib/apt/lists/*
-RUN bash -c "source /usr/local/etc/entrypoint.functions.sh && \
+RUN bash -c "source /usr/local/etc/entrypoint.xdebug.functions.sh && \
     disableXDebug && \
     composer global remove codeception/codeception && \
     composer global update && \
