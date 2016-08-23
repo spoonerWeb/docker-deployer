@@ -5,10 +5,7 @@ RUN bash -c "source /usr/local/etc/entrypoint.xdebug.functions.sh && \
     disableXDebug && \
     composer global remove codeception/codeception && \
     composer global update && \
-    composer global require --dev deployer/deployer:~3.0 deployphp/recipes:dev-master robmorgan/phinx:~0.5 && \
+    composer global require --dev deployer/deployer:~3.3 deployphp/recipes:~3.1 robmorgan/phinx:~0.6 && \
     enableXDebug"
 COPY bin/ /usr/local/bin/
-COPY ssh/ /home/developer/.ssh/
-RUN chmod 700 -R /home/developer/.ssh
-RUN chown 1000.1000 -R /home/developer/.ssh
 CMD ["dep:develop"]
