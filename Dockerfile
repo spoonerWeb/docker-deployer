@@ -5,4 +5,4 @@ RUN composer global remove codeception/codeception && \
     composer global update && \
     composer global require --dev deployer/deployer:~3.3 deployphp/recipes:~3.1
 COPY bin/ /usr/local/bin/
-CMD ["dep:develop"]
+CMD ["dep"]
