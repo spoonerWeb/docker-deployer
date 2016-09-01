@@ -4,7 +4,7 @@ function deprecationNotice() {
     echo "###################################################"
     echo "### Using dep:live, dep:stage or dep:develop is"
     echo "### deprecated and being removed soon."
-    echo "Please use `deploy path/to/deploy.php live`"
+    echo "Please use `dep -f path/to/deploy.php deploy target`"
     echo "###################################################"
 }
 
