@@ -5,7 +5,7 @@ RUN bash -c "source /usr/local/etc/entrypoint.xdebug.functions.sh && \
     disableXDebug && \
     composer global remove codeception/codeception && \
     composer global update && \
-    composer global require --dev deployer/deployer:~3.0 deployphp/recipes:dev-master && \
+    composer global require --dev deployer/deployer:~3.0 deployphp/recipes:~3.0 && \
     enableXDebug"
 COPY bin/ /usr/local/bin/
 CMD ["dep:develop"]
